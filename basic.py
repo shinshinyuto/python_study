@@ -80,8 +80,6 @@ data = [[1, 2], [3, 4], [5, 6], [7, 8]]
 result = [num * 2 for alist in data for num in alist]
 print(result)
 
-"""
-
 names = ["鈴木一郎", "田中正造", "木村拓哉", "西園寺公望", "阿良々木里美"]
 name = "里美"
 result = False
@@ -92,3 +90,16 @@ for item in names :
             result = True
             break
 print(result)
+"""
+
+id_list = ["abc74", "uis22", "iii54", "pjs20"]
+while True :
+    id = input("idを入力してください(exitで中止)")
+    if id == "exit" :
+        print("検索終了")
+        break
+    try :
+        pos = id_list.index(id)
+        print(str(pos + 1) + "番目のメンバーです")
+    except :
+        print("該当なし")
