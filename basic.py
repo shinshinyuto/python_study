@@ -80,8 +80,6 @@ data = [[1, 2], [3, 4], [5, 6], [7, 8]]
 result = [num * 2 for alist in data for num in alist]
 print(result)
 
-"""
-
 data = [[1, 2], [3, 4], [5, 6], [7, 8]]
 result = []
 for alist in data :
@@ -90,4 +88,15 @@ for alist in data :
         temp.append(num * 2)
     else :
         result.append(temp)
+print(result)
+
+"""
+names = ["鈴木一郎", "田中正造", "木村拓哉", "西園寺公望"]
+name = "里美"
+result = False
+
+for item in names:
+        if item in names :
+            result = True
+            break
 print(result)
