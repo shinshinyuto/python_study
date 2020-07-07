@@ -159,11 +159,33 @@ if num in clears :
 else :
     print("不合格です")
 
-"""
-
 namesf = ["鈴木", "田中", "木村", "西園寺"]
 namess = ["一郎", "正造", "拓哉", "公望"]
 fullname = []
 for n1, n2 in zip(namesf, namess) :
     fullname.append(n1 + n2)
 print(fullname)
+"""
+
+color_set1 = {"red","blue","yellow","green"}
+color_set2 = {"black","green","white","blue"}
+
+colors = color_set1 | color_set2
+colorlist = set.union(color_set1, color_set2)
+print(colors)
+print(colorlist)
+
+colorcommon = color_set1 & color_set2
+colorsame = color_set1.intersection(color_set2)
+print(colorcommon)
+print(colorsame)
+
+colordiff = color_set1 - color_set2
+colorminus = color_set1.difference(color_set2)
+print(colordiff)
+print(colorminus)
+
+colorsymmetric = color_set1 ^ color_set2
+colorside = color_set1.symmetric_difference(color_set2)
+print(colorsymmetric)
+print(colorside)
