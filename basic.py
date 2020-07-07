@@ -90,7 +90,6 @@ for item in names :
             result = True
             break
 print(result)
-"""
 
 id_list = ["abc74", "uis22", "iii54", "pjs20"]
 while True :
@@ -103,3 +102,24 @@ while True :
         print(str(pos + 1) + "番目のメンバーです")
     except :
         print("該当なし")
+
+result = [1,2,1,2,1,2,1,2,2,2,1,2,1,]
+half = len(result) / 2
+point = result.count(1)
+
+if point >= half :
+    print("合格")
+else :
+    print("不合格")
+
+"""
+
+import random
+datas = [2, 4, -55, 22, 9, -10]
+data = random.choice(datas)
+data_sum = sum(datas)
+data_max = max(datas)
+data_min = min(datas)
+
+info = ["チョイス : " + str(data),"合計 : " + str(data_sum),"最大値 : " + str(data_max),"最小値 : " + str(data_min)]
+print(info)
