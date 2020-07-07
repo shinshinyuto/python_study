@@ -112,8 +112,6 @@ if point >= half :
 else :
     print("不合格")
 
-"""
-
 import random
 datas = [2, 4, -55, 22, 9, -10]
 data = random.choice(datas)
@@ -123,3 +121,49 @@ data_min = min(datas)
 
 info = ["チョイス : " + str(data),"合計 : " + str(data_sum),"最大値 : " + str(data_max),"最小値 : " + str(data_min)]
 print(info)
+
+data = (
+  11, 12, 13,
+  20, 27,
+  34, 35, 36
+)
+
+print(data)
+
+data = tuple(range(-5, 6))
+print(data)
+
+week = tuple("日月火水木金土")
+print(week)
+
+color = ["red","blue","yellow","green"]
+colors = tuple(color)
+print(colors)
+
+pre3 = week[4]
+print(pre3)
+
+(a,b) = (100,200)
+print(a)
+print(b)
+
+data = (12,15)
+(boy, girl) = data
+all = boy + girl
+print(boy, girl, all)
+
+clears = (4, 8, 19, 21, 38)
+num = int(input("受験番号を入れてください："))
+if num in clears :
+    print("合格です")
+else :
+    print("不合格です")
+
+"""
+
+namesf = ["鈴木", "田中", "木村", "西園寺"]
+namess = ["一郎", "正造", "拓哉", "公望"]
+fullname = []
+for n1, n2 in zip(namesf, namess) :
+    fullname.append(n1 + n2)
+print(fullname)
