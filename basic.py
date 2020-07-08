@@ -165,7 +165,6 @@ fullname = []
 for n1, n2 in zip(namesf, namess) :
     fullname.append(n1 + n2)
 print(fullname)
-"""
 
 color_set1 = {"red","blue","yellow","green"}
 color_set2 = {"black","green","white","blue"}
@@ -189,3 +188,89 @@ colorsymmetric = color_set1 ^ color_set2
 colorside = color_set1.symmetric_difference(color_set2)
 print(colorsymmetric)
 print(colorside)
+
+metro = {
+ "G":"銀座線",
+ "M":"丸ノ内線",
+ "H":"日比谷線",
+ "T":"東西線",
+ "C":"千代田線",
+ "H":"半蔵門線",
+ "N":"南北線",
+ "F":"副都心線"
+}
+
+print(metro)
+
+data = dict([("one",1), ("two",2),("three",3)])
+print(data)
+
+datas = dict(yellow = 3, blue = 7, green = 5)
+print(datas)
+
+stock = dict.fromkeys(["s","m","l"],0)
+print(stock)
+
+newdata = dict([("one",10), ("two",20),("three",30)])
+data.update(newdata)
+print(data)
+
+del data["one"]
+print(data)
+data.clear()
+print(data)
+
+cities = dict(kagoshima = 49, hakata = 29, hiroshima = 55, osaka = 83)
+city = input("都市を入力:")
+
+try :
+    value = cities[city]
+    print(f"{city}の値は{value}です")
+except KeyError :
+    print(f"{city}のデータはありません")
+    city_key = list(cities.keys())
+    city_value = list(cities.values())
+    print(city_key)
+    print(city_value)
+except Exeption as error :
+    print(error)
+
+city_sum = sum(cities.values())
+print(city_sum)
+
+fruit = {"apple":3, "banana":8, "orange":5, "peach": 9}
+
+while fruit :
+    key = input("取り出すフルーツを選んでね：")
+    if key == "" :
+        continue
+    elif key == "exit" :
+        print("取り出し終了")
+        break
+    try :
+        value = fruit.pop(key)
+        print(f"{key}は{value}個です")
+        print(fruit)
+    except KeyError :
+        print(f"{key}はありません")
+    except Exeption as erroe :
+        print(error)
+        break
+else :
+    print("空になりました")
+
+"""
+
+fruit = {"apple":3, "banana":8, "orange":5, "peach": 9}
+
+while fruit :
+    ans = input("フルーツを取り出しますか？(y/n)：")
+    if ans == "y" :
+        key, value = fruit.popitem()
+        print(f"{key}は{value}個")
+        print(fruit)
+    elif ans == "n" :
+        print("終了しました")
+        break
+else :
+    print("もう空っぽです")
