@@ -259,8 +259,6 @@ while fruit :
 else :
     print("空になりました")
 
-"""
-
 fruit = {"apple":3, "banana":8, "orange":5, "peach": 9}
 
 while fruit :
@@ -274,3 +272,23 @@ while fruit :
         break
 else :
     print("もう空っぽです")
+
+from random import randint
+def dice() :
+    num = randint(1, 6)
+    return num
+
+for i in range(5) :
+    dice1 = dice()
+    dice2 = dice()
+    sum = dice1 + dice2
+    print(f"{dice1}と{dice2}で合計{sum}")
+
+"""
+
+def mile_meter(mile) :
+    meter = mile * 1609.344
+    return meter
+
+distance = mile_meter(20)
+print(str(distance) + "m")
