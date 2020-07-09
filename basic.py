@@ -80,24 +80,215 @@ data = [[1, 2], [3, 4], [5, 6], [7, 8]]
 result = [num * 2 for alist in data for num in alist]
 print(result)
 
-data = [[1, 2], [3, 4], [5, 6], [7, 8]]
-result = []
-for alist in data :
-    temp = []
-    for num in alist :
-        temp.append(num * 2)
-    else :
-        result.append(temp)
-print(result)
-
-"""
-names = ["鈴木一郎", "田中正造", "木村拓哉", "西園寺公望"]
+names = ["鈴木一郎", "田中正造", "木村拓哉", "西園寺公望", "阿良々木里美"]
 name = "里美"
 result = False
 
 
-for item in names:
-        if item in names :
+for item in names :
+        if name in item :
             result = True
             break
 print(result)
+
+id_list = ["abc74", "uis22", "iii54", "pjs20"]
+while True :
+    id = input("idを入力してください(exitで中止)")
+    if id == "exit" :
+        print("検索終了")
+        break
+    try :
+        pos = id_list.index(id)
+        print(str(pos + 1) + "番目のメンバーです")
+    except :
+        print("該当なし")
+
+result = [1,2,1,2,1,2,1,2,2,2,1,2,1,]
+half = len(result) / 2
+point = result.count(1)
+
+if point >= half :
+    print("合格")
+else :
+    print("不合格")
+
+import random
+datas = [2, 4, -55, 22, 9, -10]
+data = random.choice(datas)
+data_sum = sum(datas)
+data_max = max(datas)
+data_min = min(datas)
+
+info = ["チョイス : " + str(data),"合計 : " + str(data_sum),"最大値 : " + str(data_max),"最小値 : " + str(data_min)]
+print(info)
+
+data = (
+  11, 12, 13,
+  20, 27,
+  34, 35, 36
+)
+
+print(data)
+
+data = tuple(range(-5, 6))
+print(data)
+
+week = tuple("日月火水木金土")
+print(week)
+
+color = ["red","blue","yellow","green"]
+colors = tuple(color)
+print(colors)
+
+pre3 = week[4]
+print(pre3)
+
+(a,b) = (100,200)
+print(a)
+print(b)
+
+data = (12,15)
+(boy, girl) = data
+all = boy + girl
+print(boy, girl, all)
+
+clears = (4, 8, 19, 21, 38)
+num = int(input("受験番号を入れてください："))
+if num in clears :
+    print("合格です")
+else :
+    print("不合格です")
+
+namesf = ["鈴木", "田中", "木村", "西園寺"]
+namess = ["一郎", "正造", "拓哉", "公望"]
+fullname = []
+for n1, n2 in zip(namesf, namess) :
+    fullname.append(n1 + n2)
+print(fullname)
+
+color_set1 = {"red","blue","yellow","green"}
+color_set2 = {"black","green","white","blue"}
+
+colors = color_set1 | color_set2
+colorlist = set.union(color_set1, color_set2)
+print(colors)
+print(colorlist)
+
+colorcommon = color_set1 & color_set2
+colorsame = color_set1.intersection(color_set2)
+print(colorcommon)
+print(colorsame)
+
+colordiff = color_set1 - color_set2
+colorminus = color_set1.difference(color_set2)
+print(colordiff)
+print(colorminus)
+
+colorsymmetric = color_set1 ^ color_set2
+colorside = color_set1.symmetric_difference(color_set2)
+print(colorsymmetric)
+print(colorside)
+
+metro = {
+ "G":"銀座線",
+ "M":"丸ノ内線",
+ "H":"日比谷線",
+ "T":"東西線",
+ "C":"千代田線",
+ "H":"半蔵門線",
+ "N":"南北線",
+ "F":"副都心線"
+}
+
+print(metro)
+
+data = dict([("one",1), ("two",2),("three",3)])
+print(data)
+
+datas = dict(yellow = 3, blue = 7, green = 5)
+print(datas)
+
+stock = dict.fromkeys(["s","m","l"],0)
+print(stock)
+
+newdata = dict([("one",10), ("two",20),("three",30)])
+data.update(newdata)
+print(data)
+
+del data["one"]
+print(data)
+data.clear()
+print(data)
+
+cities = dict(kagoshima = 49, hakata = 29, hiroshima = 55, osaka = 83)
+city = input("都市を入力:")
+
+try :
+    value = cities[city]
+    print(f"{city}の値は{value}です")
+except KeyError :
+    print(f"{city}のデータはありません")
+    city_key = list(cities.keys())
+    city_value = list(cities.values())
+    print(city_key)
+    print(city_value)
+except Exeption as error :
+    print(error)
+
+city_sum = sum(cities.values())
+print(city_sum)
+
+fruit = {"apple":3, "banana":8, "orange":5, "peach": 9}
+
+while fruit :
+    key = input("取り出すフルーツを選んでね：")
+    if key == "" :
+        continue
+    elif key == "exit" :
+        print("取り出し終了")
+        break
+    try :
+        value = fruit.pop(key)
+        print(f"{key}は{value}個です")
+        print(fruit)
+    except KeyError :
+        print(f"{key}はありません")
+    except Exeption as erroe :
+        print(error)
+        break
+else :
+    print("空になりました")
+
+fruit = {"apple":3, "banana":8, "orange":5, "peach": 9}
+
+while fruit :
+    ans = input("フルーツを取り出しますか？(y/n)：")
+    if ans == "y" :
+        key, value = fruit.popitem()
+        print(f"{key}は{value}個")
+        print(fruit)
+    elif ans == "n" :
+        print("終了しました")
+        break
+else :
+    print("もう空っぽです")
+
+from random import randint
+def dice() :
+    num = randint(1, 6)
+    return num
+
+for i in range(5) :
+    dice1 = dice()
+    dice2 = dice()
+    sum = dice1 + dice2
+    print(f"{dice1}と{dice2}で合計{sum}")
+
+"""
+
+def mile_meter(mile) :
+    meter = mile * 1609.344
+    return meter
+
+distance = mile_meter(20)
+print(str(distance) + "m")
