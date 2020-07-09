@@ -284,11 +284,95 @@ for i in range(5) :
     sum = dice1 + dice2
     print(f"{dice1}と{dice2}で合計{sum}")
 
-"""
-
 def mile_meter(mile) :
     meter = mile * 1609.344
     return meter
 
 distance = mile_meter(20)
 print(str(distance) + "m")
+
+from random import randint
+
+def dice() :
+    num = randint(1, 6)
+    return num
+
+def something() :
+    pass
+
+def dicegame() :
+    dice1 = dice()
+    dice2 = dice()
+    sum = dice1 + dice2
+    if sum % 2 == 0 :
+        print(f"{dice1}と{dice2}で合計{sum}：偶数")
+    else :
+        print(f"{dice1}と{dice2}で合計{sum}：奇数")
+
+for i in range(5) :
+    dicegame()
+
+print("ゲーム終了")
+def calc(num) :
+    unit_price = 180
+    try :
+        num = float(num)
+        return num * unit_price
+    except :
+        return None
+
+while True :
+    num = input("個数を選んでください：")
+    if num == "" :
+        continue
+    elif num == "exit" :
+        break
+
+    result = calc(num)
+    print(result)
+
+v = 2
+def calc() :
+    v_local = 10 * v
+    ans = 3 * v_local
+    print(ans)
+
+calc()
+
+def price(adult, child) :
+    return (adult * 1200)+(child * 500)
+
+a = price(1, 2)
+print(a)
+
+def calc(size, num = 4) :
+    unit_price = {"s": 120, "m": 150, "l": 180}
+    price = unit_price[size] * num
+    return (size, num, price)
+
+a = calc("m", 5)
+b = calc("l")
+
+print(a, b)
+
+def route(start, end, *args) :
+    route_list = [start]
+    route_list += list(args)
+    route_list += [end]
+
+    route_str = "→".join(route_list)
+    print(route_str)
+
+start = "東京"
+end = "鹿児島"
+route(start, end, "香川", "広島", "福岡")
+
+"""
+
+import exchange
+
+yen = 250000
+rate = 114.22
+charge = 1.0
+dollar = exchange.yen2dollar(yen, rate, charge)
+print(f"{yen}円：{dollar :,.2f}ドル")
