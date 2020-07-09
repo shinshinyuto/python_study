@@ -367,8 +367,6 @@ start = "東京"
 end = "鹿児島"
 route(start, end, "香川", "広島", "福岡")
 
-"""
-
 import exchange
 
 yen = 250000
@@ -376,3 +374,28 @@ rate = 114.22
 charge = 1.0
 dollar = exchange.yen2dollar(yen, rate, charge)
 print(f"{yen}円：{dollar :,.2f}ドル")
+
+num = (lambda w, h : w * h)(3, 4)
+print(num)
+
+price = lambda burger = 1, potato = 0 : burger*240 + potato*100
+order = price(potato = 2)
+print(order)
+
+sizelist = ["xs", "s", "m", "l"]
+data = ["s","xs","l","s","m","m","xs","l"]
+data.sort(key = lambda item : sizelist.index(item))
+print(data)
+
+def double(x) :
+    return x * 2
+
+nums = [4, 3, 8, 7, 3]
+nums2 = list(map(double, nums))
+print(nums2)
+
+"""
+nums = [4, -3, 8, -7, -3]
+nums2 = list(filter(lambda x : x > 0, nums))
+
+print(nums2)
