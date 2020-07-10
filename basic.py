@@ -394,8 +394,66 @@ nums = [4, 3, 8, 7, 3]
 nums2 = list(map(double, nums))
 print(nums2)
 
-"""
 nums = [4, -3, 8, -7, -3]
 nums2 = list(filter(lambda x : x > 0, nums))
 
 print(nums2)
+
+def num_generator() :
+    n = 0
+    while True :
+        num = n*n + 2*n + 3
+        yield num
+        n += 1
+
+def do_something(num) :
+    return (num%2, num%3)
+
+gen = num_generator()
+for i in range(1, 10) :
+    num = next(gen)
+    result = do_something(num)
+    print(result)
+
+def fizzbuzz() :
+    n = 1
+    while True:
+        if n % 15 == 0 :
+            yield "FizzBuzz"
+        elif n % 3 == 0 :
+            yield "Fizz"
+        elif n % 5 == 0 :
+            yield "Buzz"
+        else :
+            yield str(n)
+        n = n + 1
+
+game = fizzbuzz()
+for i in range(1, 20) :
+    print(next(game))
+
+
+"""
+
+def word_quiz(word) :
+    hint = ""
+    for letter in word :
+        hint += letter
+        yield hint
+
+ans = "Python"
+quiz = word_quiz(ans)
+while True :
+    try :
+        hint = next(quiz)
+        print(hint)
+        word = input("この単語は?：")
+        if ans.lower() == word.lower() :
+            point = len(ans) - len(hint)
+            print(f"正解です！得点:{point}")
+            break
+        else :
+            print("違います")
+    except :
+        print("終了です：0円")
+        break
