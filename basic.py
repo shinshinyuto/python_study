@@ -367,8 +367,6 @@ start = "東京"
 end = "鹿児島"
 route(start, end, "香川", "広島", "福岡")
 
-"""
-
 import exchange
 
 yen = 250000
@@ -376,3 +374,86 @@ rate = 114.22
 charge = 1.0
 dollar = exchange.yen2dollar(yen, rate, charge)
 print(f"{yen}円：{dollar :,.2f}ドル")
+
+num = (lambda w, h : w * h)(3, 4)
+print(num)
+
+price = lambda burger = 1, potato = 0 : burger*240 + potato*100
+order = price(potato = 2)
+print(order)
+
+sizelist = ["xs", "s", "m", "l"]
+data = ["s","xs","l","s","m","m","xs","l"]
+data.sort(key = lambda item : sizelist.index(item))
+print(data)
+
+def double(x) :
+    return x * 2
+
+nums = [4, 3, 8, 7, 3]
+nums2 = list(map(double, nums))
+print(nums2)
+
+nums = [4, -3, 8, -7, -3]
+nums2 = list(filter(lambda x : x > 0, nums))
+
+print(nums2)
+
+def num_generator() :
+    n = 0
+    while True :
+        num = n*n + 2*n + 3
+        yield num
+        n += 1
+
+def do_something(num) :
+    return (num%2, num%3)
+
+gen = num_generator()
+for i in range(1, 10) :
+    num = next(gen)
+    result = do_something(num)
+    print(result)
+
+def fizzbuzz() :
+    n = 1
+    while True:
+        if n % 15 == 0 :
+            yield "FizzBuzz"
+        elif n % 3 == 0 :
+            yield "Fizz"
+        elif n % 5 == 0 :
+            yield "Buzz"
+        else :
+            yield str(n)
+        n = n + 1
+
+game = fizzbuzz()
+for i in range(1, 20) :
+    print(next(game))
+
+
+"""
+
+def word_quiz(word) :
+    hint = ""
+    for letter in word :
+        hint += letter
+        yield hint
+
+ans = "Python"
+quiz = word_quiz(ans)
+while True :
+    try :
+        hint = next(quiz)
+        print(hint)
+        word = input("この単語は?：")
+        if ans.lower() == word.lower() :
+            point = len(ans) - len(hint)
+            print(f"正解です！得点:{point}")
+            break
+        else :
+            print("違います")
+    except :
+        print("終了です：0円")
+        break
