@@ -432,9 +432,6 @@ game = fizzbuzz()
 for i in range(1, 20) :
     print(next(game))
 
-
-"""
-
 def word_quiz(word) :
     hint = ""
     for letter in word :
@@ -457,3 +454,28 @@ while True :
     except :
         print("終了です：0円")
         break
+
+
+"""
+class Car :
+    def __init__(self, color = "white") :
+        self.color = color
+        self.mileage = 0
+
+    def drive(self, km) :
+        self.mileage += km
+        msg = f"{km}kmドライブしました。総距離は{self.mileage}kmです。"
+        print(msg)
+
+
+car1 = Car()
+car2 = Car()
+
+print(car1.mileage)
+print(car1.color)
+
+car1.color = "green"
+print(car1.color)
+
+print(car1.drive(15))
+print(car1.drive(45))
