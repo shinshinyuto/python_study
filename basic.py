@@ -490,8 +490,6 @@ print(Car.maker)
 print(Car.count)
 print(car1.mynumber)
 
-"""
-
 class Simple :
     pass
 
@@ -519,3 +517,45 @@ obj2.play = sax
 print(obj1.play())
 print(obj2.play())
 print(obj1.play("ドンドコ"))
+
+class A :
+    def hello(self) :
+        print("ハロー")
+
+class B(A) :
+    def bye(self) :
+        print("グッバイ")
+
+obj = B()
+print(obj.hello())
+print(obj.bye())
+
+from exchange import Datalog
+
+#Datalogクラスを継承したMydataクラス
+class Mydata(Datalog) :
+    def printlog(self) :
+        #スーパークラスのインスタンス変数の値を取る
+        for date, data in self.loglist :
+            print(date, data)
+
+obj = Mydata()
+obj.log("abc")
+obj.log("123")
+obj.log("あいう")
+obj.printlog()
+"""
+
+from exchange import Greet2
+
+obj = Greet2()
+obj.hello()
+obj.hello("井上")
+
+from exchange import Player
+
+player1 = Player("青木", "16", "10", "MF")
+print(player1.name)
+print(player1.age)
+print(player1.number)
+print(player1.position)
