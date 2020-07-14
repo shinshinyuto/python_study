@@ -455,10 +455,17 @@ while True :
         print("終了です：0円")
         break
 
-
-"""
 class Car :
+    maker = "PEACE"
+    count = 0
+    @classmethod
+    def countup(cls) :
+        cls.count += 1
+        print(f"出荷台数：{cls.count}")
+
     def __init__(self, color = "white") :
+        Car.countup()
+        self.mynumber = Car.count
         self.color = color
         self.mileage = 0
 
@@ -479,3 +486,36 @@ print(car1.color)
 
 print(car1.drive(15))
 print(car1.drive(45))
+print(Car.maker)
+print(Car.count)
+print(car1.mynumber)
+
+"""
+
+class Simple :
+    pass
+
+Simple.x = 100
+print(Simple.x * 2)
+
+def hello(msg = "ハロー") :
+    print(msg)
+
+Simple.greeting = hello
+print(Simple.greeting("おはよう"))
+
+obj1 = Simple()
+obj2 = Simple()
+
+def drum(beat = "とことこ") :
+    print(beat)
+
+def sax(phrase = "ぷーぷー") :
+    print(phrase)
+
+obj1.play = drum
+obj2.play = sax
+
+print(obj1.play())
+print(obj2.play())
+print(obj1.play("ドンドコ"))
