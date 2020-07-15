@@ -432,9 +432,6 @@ game = fizzbuzz()
 for i in range(1, 20) :
     print(next(game))
 
-
-"""
-
 def word_quiz(word) :
     hint = ""
     for letter in word :
@@ -457,3 +454,170 @@ while True :
     except :
         print("終了です：0円")
         break
+
+class Car :
+    maker = "PEACE"
+    count = 0
+    @classmethod
+    def countup(cls) :
+        cls.count += 1
+        print(f"出荷台数：{cls.count}")
+
+    def __init__(self, color = "white") :
+        Car.countup()
+        self.mynumber = Car.count
+        self.color = color
+        self.mileage = 0
+
+    def drive(self, km) :
+        self.mileage += km
+        msg = f"{km}kmドライブしました。総距離は{self.mileage}kmです。"
+        print(msg)
+
+
+car1 = Car()
+car2 = Car()
+
+print(car1.mileage)
+print(car1.color)
+
+car1.color = "green"
+print(car1.color)
+
+print(car1.drive(15))
+print(car1.drive(45))
+print(Car.maker)
+print(Car.count)
+print(car1.mynumber)
+
+class Simple :
+    pass
+
+Simple.x = 100
+print(Simple.x * 2)
+
+def hello(msg = "ハロー") :
+    print(msg)
+
+Simple.greeting = hello
+print(Simple.greeting("おはよう"))
+
+obj1 = Simple()
+obj2 = Simple()
+
+def drum(beat = "とことこ") :
+    print(beat)
+
+def sax(phrase = "ぷーぷー") :
+    print(phrase)
+
+obj1.play = drum
+obj2.play = sax
+
+print(obj1.play())
+print(obj2.play())
+print(obj1.play("ドンドコ"))
+
+class A :
+    def hello(self) :
+        print("ハロー")
+
+class B(A) :
+    def bye(self) :
+        print("グッバイ")
+
+obj = B()
+print(obj.hello())
+print(obj.bye())
+
+from exchange import Datalog
+
+#Datalogクラスを継承したMydataクラス
+class Mydata(Datalog) :
+    def printlog(self) :
+        #スーパークラスのインスタンス変数の値を取る
+        for date, data in self.loglist :
+            print(date, data)
+
+obj = Mydata()
+obj.log("abc")
+obj.log("123")
+obj.log("あいう")
+obj.printlog()
+
+from exchange import Greet2
+
+obj = Greet2()
+obj.hello()
+obj.hello("井上")
+
+from exchange import Player
+
+player1 = Player("青木", "16", "10", "MF")
+print(player1.name)
+print(player1.age)
+print(player1.number)
+print(player1.position)
+
+class Person():
+    def __init__(self, name) :
+        self.__name = name
+
+    def who(self) :
+        print(self.__name + "です")
+
+man = Person("宇佐美")
+man.who()
+
+man.__name #直接アクセスするとエラー
+
+class Goods :
+    def __init__(self, name, price) :
+
+        self.__data = {"name": name, "price": price}
+
+    @property
+    def name(self) :
+        return self.__data["name"]
+
+    @name.setter
+    def name(self, value) :
+        self.__data["name"] = value
+
+    @property
+    def price(self) :
+        price = self.__data["price"]
+        price_str = f"{price:,}円"
+        return price_str
+
+shoes = Goods("dream", 6800)
+print(shoes.name)
+shoes.name = "Dream 9"
+print(shoes.name)
+print(shoes.price)
+shoes.price = 9800 #エラー セッターが定義されていない
+
+"""
+
+class Goods :
+    def __init__(self, name, price) :
+        self.__data = {"name": name, "price": price}
+
+    def get_name(self) :
+        return self.__data["name"]
+
+    def set_name(self, value) :
+        self.__data["name"] = value
+
+    def get_price(self) :
+        price = self.__data["price"]
+        price_str = f"{price:,}円"
+        return price_str
+
+    name = property(get_name, set_name)
+    price = property(get_price)
+
+shoes = Goods("nike", 6800)
+
+print(shoes.name)
+print(shoes.price)
