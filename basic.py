@@ -544,7 +544,6 @@ obj.log("abc")
 obj.log("123")
 obj.log("あいう")
 obj.printlog()
-"""
 
 from exchange import Greet2
 
@@ -559,3 +558,66 @@ print(player1.name)
 print(player1.age)
 print(player1.number)
 print(player1.position)
+
+class Person():
+    def __init__(self, name) :
+        self.__name = name
+
+    def who(self) :
+        print(self.__name + "です")
+
+man = Person("宇佐美")
+man.who()
+
+man.__name #直接アクセスするとエラー
+
+class Goods :
+    def __init__(self, name, price) :
+
+        self.__data = {"name": name, "price": price}
+
+    @property
+    def name(self) :
+        return self.__data["name"]
+
+    @name.setter
+    def name(self, value) :
+        self.__data["name"] = value
+
+    @property
+    def price(self) :
+        price = self.__data["price"]
+        price_str = f"{price:,}円"
+        return price_str
+
+shoes = Goods("dream", 6800)
+print(shoes.name)
+shoes.name = "Dream 9"
+print(shoes.name)
+print(shoes.price)
+shoes.price = 9800 #エラー セッターが定義されていない
+
+"""
+
+class Goods :
+    def __init__(self, name, price) :
+        self.__data = {"name": name, "price": price}
+
+    def get_name(self) :
+        return self.__data["name"]
+
+    def set_name(self, value) :
+        self.__data["name"] = value
+
+    def get_price(self) :
+        price = self.__data["price"]
+        price_str = f"{price:,}円"
+        return price_str
+
+    name = property(get_name, set_name)
+    price = property(get_price)
+
+shoes = Goods("nike", 6800)
+
+print(shoes.name)
+print(shoes.price)
