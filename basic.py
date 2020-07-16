@@ -622,10 +622,22 @@ text = fileobj.read()
 fileobj.close()
 print(text)
 
+price = [200, 300, 400, 500, 600]
+count = [31, 29, 25, 28, 26]
+plt.plot(price, count, marker = "o")
+plt.title("count - price")
+plt.xlabel("price")
+plt.ylabel("count")
+plt.grid(True)
+
 """
 
 import matplotlib.pyplot as plt
-price = [200, 300, 400, 500, 600]
-count = [31, 29, 25, 28, 26]
-plt.plot(price, count)
+import math
+
+X = range(0, 360)
+S = [math.sin(math.radians(d)) for d in X]
+C = [math.cos(math.radians(d)) for d in X]
+plt.plot(X, S)
+plt.plot(X, C)
 plt.show()
