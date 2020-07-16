@@ -630,14 +630,24 @@ plt.xlabel("price")
 plt.ylabel("count")
 plt.grid(True)
 
-"""
-
-import matplotlib.pyplot as plt
 import math
-
 X = range(0, 360)
 S = [math.sin(math.radians(d)) for d in X]
 C = [math.cos(math.radians(d)) for d in X]
-plt.plot(X, S)
-plt.plot(X, C)
+
+"""
+
+import matplotlib.pyplot as plt
+
+price1 = [200, 300, 400, 500, 600]
+price2 = [24, 33, 40, 55, 69]
+price3 = [17, 38, 99, 115, 170]
+count1 = [27, 29, 25, 28, 26]
+count2 = [38, 66, 88, 109, 126]
+count3 = [111, 129, 130, 150, 176]
+
+plt.plot(price1, count1, marker = "o", color = "blue", linestyle = "-", label = "p1")
+plt.plot(price2, count2, marker = "v", color = "red", linestyle = "--", label = "p2")
+plt.plot(price3, count3, marker = "d", color = "#000000", linestyle = ":", label = "p3")
+plt.legend(loc = "upper left")
 plt.show()
