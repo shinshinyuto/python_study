@@ -1,7 +1,3 @@
-#print("Hello World")
-
-#a = 10; b = 20; ab = a + b;
-#print(ab)
 """
 a = 25
 b = 50
@@ -597,8 +593,6 @@ print(shoes.name)
 print(shoes.price)
 shoes.price = 9800 #エラー セッターが定義されていない
 
-"""
-
 class Goods :
     def __init__(self, name, price) :
         self.__data = {"name": name, "price": price}
@@ -621,3 +615,17 @@ shoes = Goods("nike", 6800)
 
 print(shoes.name)
 print(shoes.price)
+
+file = "./data/python.txt"
+fileobj = open(file)
+text = fileobj.read()
+fileobj.close()
+print(text)
+
+"""
+
+import matplotlib.pyplot as plt
+price = [200, 300, 400, 500, 600]
+count = [31, 29, 25, 28, 26]
+plt.plot(price, count)
+plt.show()
