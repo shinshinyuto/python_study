@@ -635,10 +635,6 @@ X = range(0, 360)
 S = [math.sin(math.radians(d)) for d in X]
 C = [math.cos(math.radians(d)) for d in X]
 
-"""
-
-import matplotlib.pyplot as plt
-
 price1 = [200, 300, 400, 500, 600]
 price2 = [24, 33, 40, 55, 69]
 price3 = [17, 38, 99, 115, 170]
@@ -650,4 +646,25 @@ plt.plot(price1, count1, marker = "o", color = "blue", linestyle = "-", label = 
 plt.plot(price2, count2, marker = "v", color = "red", linestyle = "--", label = "p2")
 plt.plot(price3, count3, marker = "d", color = "#000000", linestyle = ":", label = "p3")
 plt.legend(loc = "upper left")
+plt.show()
+
+labels = ["A","B","C","E","D","F","G","H","I","J"]
+x_pos = range(0, 10)
+y_pos = range(0, 10)
+v = [91, 45, 17, 88, 47, 87, 49, 56, 67, 77]
+plt.barh(y_pos, v, tick_label = labels)
+plt.show()
+
+"""
+import matplotlib.pyplot as plt
+
+labels = ["Green","Red","Yellow","Blue","Black","White"]
+x_pos = range(0, 6)
+A = [34, 46, 45, 56, 37, 44]
+B = [17, 47, 55, 67, 49, 29]
+
+bar1 = plt.bar(x_pos, A, color = "g")
+bar2 = plt.bar(x_pos, B, color = "c", bottom = A)
+plt.xticks(x_pos, labels, rotation = "vertical")
+plt.legend((bar1, bar2), ("man", "woman"), loc = "upper right")
 plt.show()
