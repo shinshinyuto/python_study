@@ -655,9 +655,6 @@ v = [91, 45, 17, 88, 47, 87, 49, 56, 67, 77]
 plt.barh(y_pos, v, tick_label = labels)
 plt.show()
 
-"""
-import matplotlib.pyplot as plt
-
 labels = ["Green","Red","Yellow","Blue","Black","White"]
 x_pos = range(0, 6)
 A = [34, 46, 45, 56, 37, 44]
@@ -667,4 +664,30 @@ bar1 = plt.bar(x_pos, A, color = "g")
 bar2 = plt.bar(x_pos, B, color = "c", bottom = A)
 plt.xticks(x_pos, labels, rotation = "vertical")
 plt.legend((bar1, bar2), ("man", "woman"), loc = "upper right")
+plt.show()
+
+X1 = [91, 45, 17, 88, 47, 87, 49, 56, 67, 77]
+Y1 = [57, 52, 92, 58, 27, 48, 55, 30, 99, 63]
+X2 = [38, 47, 30, 38, 20, 36, 54, 73, 82, 39]
+Y2 = [20, 88, 73, 93, 47, 63, 42, 89, 40, 16]
+plt.scatter(X1, Y1, marker = "+", color = "red")
+plt.scatter(X2, Y2, marker = "^", color = "green")
+plt.show()
+
+X, Y = np.random.rand(100), np.random.rand(100)
+V = np.random.rand(100)*1000 + 50
+W = np.random.rand(100)
+plt.scatter(X, Y, marker = "o", s = V,c = W, cmap = "hot", alpha = 0.5, linewidths = 1, edgecolors = "b")
+plt.colorbar()
+plt.grid(True)
+plt.show()
+
+"""
+import matplotlib.pyplot as plt
+
+import numpy as np
+labels = ["E","D","C","B","A"]
+V = [17, 25, 37, 68, 89]
+ex = [0, 0, 0.1, 0, 0]
+plt.pie(V, explode = ex, labels = labels, autopct = '%1.1f%%', startangle = 90)
 plt.show()
