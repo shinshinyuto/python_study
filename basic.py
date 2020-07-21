@@ -682,12 +682,56 @@ plt.colorbar()
 plt.grid(True)
 plt.show()
 
-"""
-import matplotlib.pyplot as plt
-
 import numpy as np
 labels = ["E","D","C","B","A"]
 V = [17, 25, 37, 68, 89]
 ex = [0, 0, 0.1, 0, 0]
 plt.pie(V, explode = ex, labels = labels, autopct = '%1.1f%%', startangle = 90)
+plt.show()
+
+import matplotlib.pyplot as plt
+X1, Y1 = range(0, 7), [61, 45, 82, 47, 27, 83, 59]
+X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
+X3, Y3 = range(0, 4), [49, 30, 61, 43]
+labels = ["A","B","C","D","E","F","G"]
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(2,1,1)
+ax1.bar(X1, Y1, color = "b", tick_label = labels)
+ax1.set_title("snake")
+
+ax2 = fig.add_subplot(2,2,3)
+ax2.bar(X2, Y2, color = "g", tick_label = labels[:5])
+ax2.set_title("fish")
+
+ax3 = fig.add_subplot(2,2,4)
+ax3.bar(X3, Y3, color = "c", tick_label = labels[:4])
+ax3.set_title("bird")
+
+plt.tight_layout()
+plt.show()
+
+"""
+
+import matplotlib.pyplot as plt
+X1, Y1 = range(0, 5), [61, 45, 82, 47, 27]
+X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
+
+labels = ["A","B","C","D","E"]
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(1,2,1)
+ax1.bar(X1, Y1, color = "b", tick_label = labels)
+ax1.set_title("snake")
+
+ymin, ymax = plt.ylim()
+
+ax2 = fig.add_subplot(1,2,2)
+ax2.bar(X2, Y2, color = "g", tick_label = labels[:5])
+ax2.set_title("fish")
+
+plt.ylim(ymin, ymax)
+
 plt.show()
