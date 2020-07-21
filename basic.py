@@ -1,7 +1,3 @@
-#print("Hello World")
-
-#a = 10; b = 20; ab = a + b;
-#print(ab)
 """
 a = 25
 b = 50
@@ -597,8 +593,6 @@ print(shoes.name)
 print(shoes.price)
 shoes.price = 9800 #エラー セッターが定義されていない
 
-"""
-
 class Goods :
     def __init__(self, name, price) :
         self.__data = {"name": name, "price": price}
@@ -621,3 +615,123 @@ shoes = Goods("nike", 6800)
 
 print(shoes.name)
 print(shoes.price)
+
+file = "./data/python.txt"
+fileobj = open(file)
+text = fileobj.read()
+fileobj.close()
+print(text)
+
+price = [200, 300, 400, 500, 600]
+count = [31, 29, 25, 28, 26]
+plt.plot(price, count, marker = "o")
+plt.title("count - price")
+plt.xlabel("price")
+plt.ylabel("count")
+plt.grid(True)
+
+import math
+X = range(0, 360)
+S = [math.sin(math.radians(d)) for d in X]
+C = [math.cos(math.radians(d)) for d in X]
+
+price1 = [200, 300, 400, 500, 600]
+price2 = [24, 33, 40, 55, 69]
+price3 = [17, 38, 99, 115, 170]
+count1 = [27, 29, 25, 28, 26]
+count2 = [38, 66, 88, 109, 126]
+count3 = [111, 129, 130, 150, 176]
+
+plt.plot(price1, count1, marker = "o", color = "blue", linestyle = "-", label = "p1")
+plt.plot(price2, count2, marker = "v", color = "red", linestyle = "--", label = "p2")
+plt.plot(price3, count3, marker = "d", color = "#000000", linestyle = ":", label = "p3")
+plt.legend(loc = "upper left")
+plt.show()
+
+labels = ["A","B","C","E","D","F","G","H","I","J"]
+x_pos = range(0, 10)
+y_pos = range(0, 10)
+v = [91, 45, 17, 88, 47, 87, 49, 56, 67, 77]
+plt.barh(y_pos, v, tick_label = labels)
+plt.show()
+
+labels = ["Green","Red","Yellow","Blue","Black","White"]
+x_pos = range(0, 6)
+A = [34, 46, 45, 56, 37, 44]
+B = [17, 47, 55, 67, 49, 29]
+
+bar1 = plt.bar(x_pos, A, color = "g")
+bar2 = plt.bar(x_pos, B, color = "c", bottom = A)
+plt.xticks(x_pos, labels, rotation = "vertical")
+plt.legend((bar1, bar2), ("man", "woman"), loc = "upper right")
+plt.show()
+
+X1 = [91, 45, 17, 88, 47, 87, 49, 56, 67, 77]
+Y1 = [57, 52, 92, 58, 27, 48, 55, 30, 99, 63]
+X2 = [38, 47, 30, 38, 20, 36, 54, 73, 82, 39]
+Y2 = [20, 88, 73, 93, 47, 63, 42, 89, 40, 16]
+plt.scatter(X1, Y1, marker = "+", color = "red")
+plt.scatter(X2, Y2, marker = "^", color = "green")
+plt.show()
+
+X, Y = np.random.rand(100), np.random.rand(100)
+V = np.random.rand(100)*1000 + 50
+W = np.random.rand(100)
+plt.scatter(X, Y, marker = "o", s = V,c = W, cmap = "hot", alpha = 0.5, linewidths = 1, edgecolors = "b")
+plt.colorbar()
+plt.grid(True)
+plt.show()
+
+import numpy as np
+labels = ["E","D","C","B","A"]
+V = [17, 25, 37, 68, 89]
+ex = [0, 0, 0.1, 0, 0]
+plt.pie(V, explode = ex, labels = labels, autopct = '%1.1f%%', startangle = 90)
+plt.show()
+
+import matplotlib.pyplot as plt
+X1, Y1 = range(0, 7), [61, 45, 82, 47, 27, 83, 59]
+X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
+X3, Y3 = range(0, 4), [49, 30, 61, 43]
+labels = ["A","B","C","D","E","F","G"]
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(2,1,1)
+ax1.bar(X1, Y1, color = "b", tick_label = labels)
+ax1.set_title("snake")
+
+ax2 = fig.add_subplot(2,2,3)
+ax2.bar(X2, Y2, color = "g", tick_label = labels[:5])
+ax2.set_title("fish")
+
+ax3 = fig.add_subplot(2,2,4)
+ax3.bar(X3, Y3, color = "c", tick_label = labels[:4])
+ax3.set_title("bird")
+
+plt.tight_layout()
+plt.show()
+
+"""
+
+import matplotlib.pyplot as plt
+X1, Y1 = range(0, 5), [61, 45, 82, 47, 27]
+X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
+
+labels = ["A","B","C","D","E"]
+
+fig = plt.figure()
+
+ax1 = fig.add_subplot(1,2,1)
+ax1.bar(X1, Y1, color = "b", tick_label = labels)
+ax1.set_title("snake")
+
+ymin, ymax = plt.ylim()
+
+ax2 = fig.add_subplot(1,2,2)
+ax2.bar(X2, Y2, color = "g", tick_label = labels[:5])
+ax2.set_title("fish")
+
+plt.ylim(ymin, ymax)
+
+plt.show()
