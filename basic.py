@@ -712,8 +712,6 @@ ax3.set_title("bird")
 plt.tight_layout()
 plt.show()
 
-"""
-
 import matplotlib.pyplot as plt
 X1, Y1 = range(0, 5), [61, 45, 82, 47, 27]
 X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
@@ -735,3 +733,23 @@ ax2.set_title("fish")
 plt.ylim(ymin, ymax)
 
 plt.show()
+
+"""
+
+import numpy as np
+
+a = np.array([1, 2, 3])
+print(a)
+
+data = (1, 2, 3)
+b = np.array(data)
+print(b)
+
+print(type(a))
+print(type(b))
+print(a.dtype)
+
+c = np.array([2, 8, 4], dtype = float)
+print(c)
+c_str = np.array(c, dtype = "<U")
+print(c_str)
