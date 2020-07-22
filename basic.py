@@ -734,10 +734,6 @@ plt.ylim(ymin, ymax)
 
 plt.show()
 
-"""
-
-import numpy as np
-
 a = np.array([1, 2, 3])
 print(a)
 
@@ -753,3 +749,70 @@ c = np.array([2, 8, 4], dtype = float)
 print(c)
 c_str = np.array(c, dtype = "<U")
 print(c_str)
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+print(a)
+
+line1 = [10, 20, 30]
+line2 = [40, 50, 60]
+line3 = [70, 80, 90]
+
+b = np.array([line1, line2, line3])
+print(b)
+
+data = [1, 2, 3, 4, 5, 6]
+c = np.array(data).reshape(2, 3)
+print(c)
+
+d = np.array([[0, 1], [2, 3], [4, 5]])
+d.ravel()
+print(d)
+d.flatten()
+print(d)
+print(d.shape)
+print(d.ndim)
+print(d.size)
+
+a = np.array([0, 1, 2])
+b = np.append(a, [3, 4, 5])
+print(b)
+c = np.array([1, 2, 3, 4, 5, 6]).reshape(2,3)
+d = np.append(a, [7, 8, 9], axis = 0)
+print(c)
+print(d)
+
+a = np.array([0, 1, 2])
+b = np.insert(a, 1, [99, 88])
+print(b)
+
+words = np.array(["dog", "car", "bird"])
+new_words = np.insert(words, 0, "snake")
+cut_words = np.delete(words, len(words)-1)
+print(new_words)
+print(cut_words)
+
+a = np.array([[0, 1], [2, 3], [4, 5]])
+print(a)
+
+print(np.transpose(a))
+print(a.T)
+
+b = np.array([1, 2, 3, 4, 5])
+c = b[:, np.newaxis]
+print(c)
+
+print(b[3])
+print(b[-1])
+b[1] = 100
+print(b)
+"""
+
+import numpy as np
+
+data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+a = np.array(data).reshape(3,3)
+
+print(a)
+print(a[0,0])
+print(a[1,2])
+print(a[2,1])
