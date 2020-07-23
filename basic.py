@@ -805,9 +805,6 @@ print(b[3])
 print(b[-1])
 b[1] = 100
 print(b)
-"""
-
-import numpy as np
 
 data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
 a = np.array(data).reshape(3,3)
@@ -816,3 +813,22 @@ print(a)
 print(a[0,0])
 print(a[1,2])
 print(a[2,1])
+
+data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(data[:])
+print(data[:4])
+print(data[4:])
+print(data[3:7])
+print(data[::2])
+print(data[::-1])
+
+"""
+
+import numpy as np
+
+data = [2.1, 3.5, 2.5, 4.3, 5.1, 1.6]
+a = np.array(data).reshape(3,2)
+print(a)
+
+a1 = a[:2,].astype(int)
+print(a1)
