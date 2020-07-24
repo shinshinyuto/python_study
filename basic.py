@@ -822,13 +822,45 @@ print(data[3:7])
 print(data[::2])
 print(data[::-1])
 
-"""
-
-import numpy as np
-
 data = [2.1, 3.5, 2.5, 4.3, 5.1, 1.6]
 a = np.array(data).reshape(3,2)
 print(a)
 
 a1 = a[:2,].astype(int)
 print(a1)
+
+for item in data:
+    print(item)
+
+words = ["flower", "bird", "wind", "moon"]
+for i, item in enumerate(words, 2):
+    print(item, i)
+
+data = np.array([10, 20, 30, 40, 50, 60]).reshape(2,3)
+print(data)
+
+for i, item in np.ndenumerate(data):
+    print(i, item)
+
+print(a[a>=5])
+print(a[a%2 == 0])
+print(a[a%2 == 1])
+print(a[(a>=5) & (a%2 == 1)])
+print(a[~(a<0)])
+
+
+"""
+
+import numpy as np
+
+a = np.array([1,4,8,4,2,5,6,1,9,3,0,36,-2,4,7,2])
+a.sort()
+print(a)
+a =  a.reshape(4,4)
+print(a)
+a[a%2 == 0] = 0
+print(a)
+a[a%2 == 1] = 1
+print(a)
+a.sort()
+print(a)
