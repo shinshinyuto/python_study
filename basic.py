@@ -848,11 +848,6 @@ print(a[a%2 == 1])
 print(a[(a>=5) & (a%2 == 1)])
 print(a[~(a<0)])
 
-
-"""
-
-import numpy as np
-
 a = np.array([1,4,8,4,2,5,6,1,9,3,0,36,-2,4,7,2])
 a.sort()
 print(a)
@@ -864,3 +859,63 @@ a[a%2 == 1] = 1
 print(a)
 a.sort()
 print(a)
+
+A = np.array([10, 20, 30, 40]).reshape(2, 2)
+print(A)
+A = A + 5
+print(A)
+A = A - 5
+print(A)
+A = A * 5
+print(A)
+A = A / 5
+print(A)
+
+p0 = np.array((1, 1))
+p1 = np.array((6, 4))
+
+A = p1 - p0
+print(A)
+
+a_norm = np.linalg.norm(A)
+print(a_norm)
+
+A2 = A*2
+a2_norm = np.linalg.norm(A*2)
+print(A2, a2_norm)
+
+B = np.array([56, 45, 83, 67, 59, 41]).reshape(2, 3)
+print(A)
+print(B.sum())
+print(B.sum(0))
+print(B.sum(1))
+print(B.min())
+print(B.max())
+print(B.mean())
+
+"""
+
+import numpy as np
+
+sigma = 3.5
+mu = 65
+
+data = sigma * np.random.randn(200) + mu
+x = float(input("得点は？:"))
+t_score = 10 * (x - data.mean()) / data.std() + 50
+print("平均点", round(data.mean(), 1))
+print("標準偏差", round(data.std(), 1))
+print("偏差値", round(t_score))
+
+A = np.array([4, 6, 3, 7, 1])
+B = (A>5)
+print(B)
+
+C = np.array([1, 2, 3, 4]).reshape(2, 2)
+D = np.array([10, 20, 30, 40]).reshape(2, 2)
+E = C + D
+F = C * D
+G = C / D
+print(E)
+print(F)
+print(G)
