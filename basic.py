@@ -893,10 +893,6 @@ print(B.min())
 print(B.max())
 print(B.mean())
 
-"""
-
-import numpy as np
-
 sigma = 3.5
 mu = 65
 
@@ -919,3 +915,113 @@ G = C / D
 print(E)
 print(F)
 print(G)
+
+A = np.array([5, 3])
+B = np.array([4, -2])
+
+C = A + B
+D = A - B
+print(C)
+print(D)
+
+A = np.array([1, 2, 3, 4]).reshape(2, 2)
+B = np.array([100, 200])
+print(B)
+
+C = A + B
+print(C)
+
+D = np.array([1, 2, 3, 4, 5, 6]).reshape(2, 3)
+E = np.array([10, 20]).reshape(2, 1)
+
+F = D + E
+print(F)
+
+G = np.array([[1, 2], [3, 4]])
+H = np.array([[5, 6], [7, 8]])
+I = np.dot(G, H)
+print(I)
+
+J = np.array([8.66, 5.0])
+K = np.array([20, 0])
+W = np.dot(J, K)
+print(W)
+
+a = np.array([1, 2, 0])
+b = np.array([0, 1, -1])
+c = np.cross(a, b)
+print(c)
+
+import matplotlib.pyplot as plt
+
+X = np.linspace(-np.pi, np.pi, 180)
+Y = np.sin(X)
+plt.plot(X, Y)
+plt.show()
+
+n = 3
+m = 4
+
+A = np.arange(n*m).reshape(n, m)
+B = np.arange(10, 20, 2)
+C = np.arange(10, step = 0.5)
+print(A, B, C)
+
+D = np.linspace(0, 120, 16)
+E = np.empty((3, 2), dtype = int)
+print(D)
+print(E)
+
+F = np.identity(4)
+G = np.eye(3)
+
+print(F)
+print(G)
+
+zero = np.zeros(9, dtype = int)
+one = np.ones((3, 3), dtype = int)
+print(zero, one)
+
+data = np.array([1, 2, 3])
+d = data.repeat(3)
+print(d)
+
+info = np.arange(6).reshape(2, 3)
+ax0 = info.repeat(2, axis = 0)
+ax1 = info.repeat(2, axis = 1)
+
+print(info)
+print(ax0)
+print(ax1)
+
+x = np.random.rand(100)
+y = np.random.rand(100)
+
+plt.scatter(x, y)
+plt.show()
+
+a = np.random.binomial(n = 100, p = 0.1, size = (2, 3))
+b = np.random.poisson(lam = 10, size = (10))
+print(a, b)
+
+data = np.random.poisson(lam = 50, size = 1000)
+count, bins_edges, patches = plt.hist(data, bins = 100)
+
+plt.grid()
+plt.show()
+
+np.random.seed(10)
+print(np.random.randn(3))
+np.random.seed(10)
+print(np.random.randn(3))
+
+
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+data = np.arange(9).reshape(3, 3)
+np.random.shuffle(data)
+print(data)
