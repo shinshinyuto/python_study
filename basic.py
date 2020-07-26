@@ -712,8 +712,6 @@ ax3.set_title("bird")
 plt.tight_layout()
 plt.show()
 
-"""
-
 import matplotlib.pyplot as plt
 X1, Y1 = range(0, 5), [61, 45, 82, 47, 27]
 X2, Y2 = range(0, 5), [29, 62, 46, 82, 37]
@@ -735,3 +733,295 @@ ax2.set_title("fish")
 plt.ylim(ymin, ymax)
 
 plt.show()
+
+a = np.array([1, 2, 3])
+print(a)
+
+data = (1, 2, 3)
+b = np.array(data)
+print(b)
+
+print(type(a))
+print(type(b))
+print(a.dtype)
+
+c = np.array([2, 8, 4], dtype = float)
+print(c)
+c_str = np.array(c, dtype = "<U")
+print(c_str)
+
+a = np.array([[1, 2, 3], [4, 5, 6]])
+print(a)
+
+line1 = [10, 20, 30]
+line2 = [40, 50, 60]
+line3 = [70, 80, 90]
+
+b = np.array([line1, line2, line3])
+print(b)
+
+data = [1, 2, 3, 4, 5, 6]
+c = np.array(data).reshape(2, 3)
+print(c)
+
+d = np.array([[0, 1], [2, 3], [4, 5]])
+d.ravel()
+print(d)
+d.flatten()
+print(d)
+print(d.shape)
+print(d.ndim)
+print(d.size)
+
+a = np.array([0, 1, 2])
+b = np.append(a, [3, 4, 5])
+print(b)
+c = np.array([1, 2, 3, 4, 5, 6]).reshape(2,3)
+d = np.append(a, [7, 8, 9], axis = 0)
+print(c)
+print(d)
+
+a = np.array([0, 1, 2])
+b = np.insert(a, 1, [99, 88])
+print(b)
+
+words = np.array(["dog", "car", "bird"])
+new_words = np.insert(words, 0, "snake")
+cut_words = np.delete(words, len(words)-1)
+print(new_words)
+print(cut_words)
+
+a = np.array([[0, 1], [2, 3], [4, 5]])
+print(a)
+
+print(np.transpose(a))
+print(a.T)
+
+b = np.array([1, 2, 3, 4, 5])
+c = b[:, np.newaxis]
+print(c)
+
+print(b[3])
+print(b[-1])
+b[1] = 100
+print(b)
+
+data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+a = np.array(data).reshape(3,3)
+
+print(a)
+print(a[0,0])
+print(a[1,2])
+print(a[2,1])
+
+data = [10, 20, 30, 40, 50, 60, 70, 80, 90]
+print(data[:])
+print(data[:4])
+print(data[4:])
+print(data[3:7])
+print(data[::2])
+print(data[::-1])
+
+data = [2.1, 3.5, 2.5, 4.3, 5.1, 1.6]
+a = np.array(data).reshape(3,2)
+print(a)
+
+a1 = a[:2,].astype(int)
+print(a1)
+
+for item in data:
+    print(item)
+
+words = ["flower", "bird", "wind", "moon"]
+for i, item in enumerate(words, 2):
+    print(item, i)
+
+data = np.array([10, 20, 30, 40, 50, 60]).reshape(2,3)
+print(data)
+
+for i, item in np.ndenumerate(data):
+    print(i, item)
+
+print(a[a>=5])
+print(a[a%2 == 0])
+print(a[a%2 == 1])
+print(a[(a>=5) & (a%2 == 1)])
+print(a[~(a<0)])
+
+a = np.array([1,4,8,4,2,5,6,1,9,3,0,36,-2,4,7,2])
+a.sort()
+print(a)
+a =  a.reshape(4,4)
+print(a)
+a[a%2 == 0] = 0
+print(a)
+a[a%2 == 1] = 1
+print(a)
+a.sort()
+print(a)
+
+A = np.array([10, 20, 30, 40]).reshape(2, 2)
+print(A)
+A = A + 5
+print(A)
+A = A - 5
+print(A)
+A = A * 5
+print(A)
+A = A / 5
+print(A)
+
+p0 = np.array((1, 1))
+p1 = np.array((6, 4))
+
+A = p1 - p0
+print(A)
+
+a_norm = np.linalg.norm(A)
+print(a_norm)
+
+A2 = A*2
+a2_norm = np.linalg.norm(A*2)
+print(A2, a2_norm)
+
+B = np.array([56, 45, 83, 67, 59, 41]).reshape(2, 3)
+print(A)
+print(B.sum())
+print(B.sum(0))
+print(B.sum(1))
+print(B.min())
+print(B.max())
+print(B.mean())
+
+sigma = 3.5
+mu = 65
+
+data = sigma * np.random.randn(200) + mu
+x = float(input("得点は？:"))
+t_score = 10 * (x - data.mean()) / data.std() + 50
+print("平均点", round(data.mean(), 1))
+print("標準偏差", round(data.std(), 1))
+print("偏差値", round(t_score))
+
+A = np.array([4, 6, 3, 7, 1])
+B = (A>5)
+print(B)
+
+C = np.array([1, 2, 3, 4]).reshape(2, 2)
+D = np.array([10, 20, 30, 40]).reshape(2, 2)
+E = C + D
+F = C * D
+G = C / D
+print(E)
+print(F)
+print(G)
+
+A = np.array([5, 3])
+B = np.array([4, -2])
+
+C = A + B
+D = A - B
+print(C)
+print(D)
+
+A = np.array([1, 2, 3, 4]).reshape(2, 2)
+B = np.array([100, 200])
+print(B)
+
+C = A + B
+print(C)
+
+D = np.array([1, 2, 3, 4, 5, 6]).reshape(2, 3)
+E = np.array([10, 20]).reshape(2, 1)
+
+F = D + E
+print(F)
+
+G = np.array([[1, 2], [3, 4]])
+H = np.array([[5, 6], [7, 8]])
+I = np.dot(G, H)
+print(I)
+
+J = np.array([8.66, 5.0])
+K = np.array([20, 0])
+W = np.dot(J, K)
+print(W)
+
+a = np.array([1, 2, 0])
+b = np.array([0, 1, -1])
+c = np.cross(a, b)
+print(c)
+
+import matplotlib.pyplot as plt
+
+X = np.linspace(-np.pi, np.pi, 180)
+Y = np.sin(X)
+plt.plot(X, Y)
+plt.show()
+
+n = 3
+m = 4
+
+A = np.arange(n*m).reshape(n, m)
+B = np.arange(10, 20, 2)
+C = np.arange(10, step = 0.5)
+print(A, B, C)
+
+D = np.linspace(0, 120, 16)
+E = np.empty((3, 2), dtype = int)
+print(D)
+print(E)
+
+F = np.identity(4)
+G = np.eye(3)
+
+print(F)
+print(G)
+
+zero = np.zeros(9, dtype = int)
+one = np.ones((3, 3), dtype = int)
+print(zero, one)
+
+data = np.array([1, 2, 3])
+d = data.repeat(3)
+print(d)
+
+info = np.arange(6).reshape(2, 3)
+ax0 = info.repeat(2, axis = 0)
+ax1 = info.repeat(2, axis = 1)
+
+print(info)
+print(ax0)
+print(ax1)
+
+x = np.random.rand(100)
+y = np.random.rand(100)
+
+plt.scatter(x, y)
+plt.show()
+
+a = np.random.binomial(n = 100, p = 0.1, size = (2, 3))
+b = np.random.poisson(lam = 10, size = (10))
+print(a, b)
+
+data = np.random.poisson(lam = 50, size = 1000)
+count, bins_edges, patches = plt.hist(data, bins = 100)
+
+plt.grid()
+plt.show()
+
+np.random.seed(10)
+print(np.random.randn(3))
+np.random.seed(10)
+print(np.random.randn(3))
+
+
+"""
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+data = np.arange(9).reshape(3, 3)
+np.random.shuffle(data)
+print(data)
