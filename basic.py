@@ -1015,9 +1015,6 @@ print(np.random.randn(3))
 np.random.seed(10)
 print(np.random.randn(3))
 
-
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1025,3 +1022,65 @@ import matplotlib.pyplot as plt
 data = np.arange(9).reshape(3, 3)
 np.random.shuffle(data)
 print(data)
+
+print(dir(digits))
+print(digits.DESCR)
+print(digits.data.shape)
+print(digits.target.shape)
+
+print(digits.data)
+print(digits.target)
+
+print(digits.data[0])
+print(digits.images[0])
+
+import matplotlib.pyplot as plt
+plt.matshow(digits.images[5], cmap = "Greys")
+plt.show()
+
+print(digits.target[5])
+
+print([d.shape for d in [X_train, Y_train, X_test, Y_test]])
+
+
+"""
+
+
+from sklearn import datasets
+from sklearn import svm
+from sklearn import metrics
+import matplotlib.pyplot as plt
+
+digits = datasets.load_digits()
+x = digits.data
+y = digits.target
+n_train = len(digits.data)*2 // 3
+X_train = x[:n_train]
+Y_train = y[:n_train]
+X_test = x[n_train:]
+Y_test = y[n_train:]
+
+clf = svm.SVC(gamma = 0.001)
+clf.fit(X_train, Y_train)
+
+accuracy = clf.score(X_test, Y_test)
+print(f"正答率{accuracy}")
+
+predicted = clf.predict(X_test)
+n_error = (Y_test != predicted).sum()
+print(f"誤った個数{n_error}")
+
+print("classification report")
+print(metrics.classification_report(Y_test, predicted))
+print("confusion matrix")
+print(metrics.confusion_matrix(Y_test, predicted))
+
+imgs_yt_preds = list(zip(digits.images[n_train:], Y_test, predicted))
+for index , (image, y_t, pred) in enumerate(imgs_yt_preds[404:416]):
+    plt.subplot(3, 4, index + 1)
+    plt.axis('off')
+    plt.tight_layout()
+    plt.imshow(image, cmap = "Greys", interpolation = "nearest")
+    plt.title(f'{y_t} pre:{pred}', fontsize=12)
+
+plt.show()
