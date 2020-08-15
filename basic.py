@@ -1015,9 +1015,6 @@ print(np.random.randn(3))
 np.random.seed(10)
 print(np.random.randn(3))
 
-
-"""
-
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -1025,3 +1022,119 @@ import matplotlib.pyplot as plt
 data = np.arange(9).reshape(3, 3)
 np.random.shuffle(data)
 print(data)
+
+print(dir(digits))
+print(digits.DESCR)
+print(digits.data.shape)
+print(digits.target.shape)
+
+print(digits.data)
+print(digits.target)
+
+print(digits.data[0])
+print(digits.images[0])
+
+import matplotlib.pyplot as plt
+plt.matshow(digits.images[5], cmap = "Greys")
+plt.show()
+
+print(digits.target[5])
+
+print([d.shape for d in [X_train, Y_train, X_test, Y_test]])
+
+
+digits = datasets.load_digits()
+x = digits.data
+y = digits.target
+n_train = len(digits.data)*2 // 3
+X_train = x[:n_train]
+Y_train = y[:n_train]
+X_test = x[n_train:]
+Y_test = y[n_train:]
+
+clf = svm.SVC(gamma = 0.001)
+clf.fit(X_train, Y_train)
+
+accuracy = clf.score(X_test, Y_test)
+print(f"正答率{accuracy}")
+
+predicted = clf.predict(X_test)
+n_error = (Y_test != predicted).sum()
+print(f"誤った個数{n_error}")
+
+print("classification report")
+print(metrics.classification_report(Y_test, predicted))
+print("confusion matrix")
+print(metrics.confusion_matrix(Y_test, predicted))
+
+imgs_yt_preds = list(zip(digits.images[n_train:], Y_test, predicted))
+for index , (image, y_t, pred) in enumerate(imgs_yt_preds[404:416]):
+    plt.subplot(3, 4, index + 1)
+    plt.axis('off')
+    plt.tight_layout()
+    plt.imshow(image, cmap = "Greys", interpolation = "nearest")
+    plt.title(f'{y_t} pre:{pred}', fontsize=12)
+
+plt.show()
+
+plt.scatter(X[:50, 0], X[:50, 1], color= "r", marker= "o", label= "setosa")
+plt.scatter(X[50:100, 0], X[50:100, 1], color= "g", marker= "+", label= "versicolor")
+plt.scatter(X[100:, 0], X[100:, 1], color= "b", marker= "x", label= "virginica")
+plt.title("Iris Plants Database")
+plt.xlabel('sepal length (cm)')
+plt.xlabel('sepal width (cm)')
+plt.legend()
+plt.show()
+
+iris = datasets.load_iris()
+
+X = iris.data
+Y = iris.target
+
+ss = ShuffleSplit(train_size = 0.6, test_size = 0.4, random_state =0)
+
+train_index, test_index = next(ss.split(X))
+x_train, y_train = X[train_index], Y[train_index]
+x_test, y_test = X[test_index], Y[test_index]
+
+clf = svm.SVC()
+clf.fit(x_train, y_train)
+print(clf.score(x_test, y_test))
+
+clf = linear_model.LogisticRegression()
+clf.fit(x_train, y_train)
+print(clf.score(x_test, y_test))
+
+"""
+
+
+from sklearn import datasets
+from sklearn import svm
+from sklearn import metrics
+from sklearn.model_selection import ShuffleSplit
+from sklearn import linear_model
+from pandas import DataFrame
+import matplotlib.pyplot as plt
+import numpy as np
+
+boston = datasets.load_boston()
+boston_df = DataFrame(boston.data)
+boston_df.columns = boston.feature_names
+boston_df["Price"] = boston.target
+
+
+rooms_train = DataFrame(boston_df["RM"])
+y_train = boston.target
+model = linear_model.LinearRegression()
+model.fit(rooms_train, y_train)
+print(boston_df[:10])
+
+rooms_test = DataFrame(np.arange(rooms_train.values.min(), rooms_train.values.max(), 0.1))
+price_test = model.predict(rooms_test)
+
+plt.scatter(rooms_train.values.ravel(), y_train, c= "b", alpha= 0.5)
+plt.plot(rooms_test.values.ravel(), price_test, c= "r")
+plt.title("Boston House Prices dataset")
+plt.xlabel("rooms")
+plt.ylabel("price $1000's")
+plt.show()
